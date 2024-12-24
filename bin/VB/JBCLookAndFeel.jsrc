@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SourceFile><Source><![CDATA[Option Explicit
+Implements IJabacoClass 
+
+Public Sub Class_Initialize
+   Call setDefaultLookAndFeel()
+End Sub
+
+Public Sub setDefaultLookAndFeel()
+   setLookAndFeel( getSystemLookAndFeelClassName() ) 
+End Sub
+
+Public Function setJabacoLookAndFeel(v As String) As Boolean
+   Call UIManager.setLookAndFeel(v)
+   SetJabacoLookAndFeel = True
+End Function
+
+Public Function isInitialized() As Boolean 
+   isInitialized = True
+End Function]]></Source><Param Name="(Name)" Value="JBCLookAndFeel"/><Param Name="(SuperClass)" Value="com/sun/java/swing/plaf/windows/WindowsLookAndFeel"/><Param Name="(Type)" Value="Class"/><Param Name="(Access)" Value="Public"/><Param Name="(NameSpace)" Value="VB"/></SourceFile>

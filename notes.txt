@@ -1,0 +1,87 @@
+12/01/2024
+        Jabaco
+is a project hosted at www.jabaco.org that allows writing code in VB6 and
+compiled to Java 6 byte code. It might not provide all features without
+having entered a license key.
+  If we would try to compile SeisWin we would have to try the following steps:
+- Install JRE 6 (download from http://javadl.sun.com/webapps/download/AutoDL?BundleId=44457,
+  see first answer in 
+  https://stackoverflow.com/questions/1460554/where-can-i-find-old-versions-of-the-jdk-and-jre)
+  This is done on LG Gram, installed in "Program Files\Java\jre6". Jabaco recommends
+  installation in "Program Files (x86)\Java\jre6".
+- Open the *.vb project. Jabaco's VB loader only loads the main file.
+- Rename all project files by removing the string that the Windows File Backup
+  appends to every backed up file. - Done.
+- Trying to run the code generates compilation error for the DLL VISA interface
+  (VISA32.BAS). The compiler does not understand the "DECLARE" keyword.
+- Trying to compile the source with JRE 1.4. - Done. Did not help.
+  Compilation error is still
+  C:\Users\gfuch\Projects\jabacoframework\Framework\src\VBA\Interaction.java:197: error: cannot access ServiceConfigurationError
+  (The Ant project is an Eclipse IDE project.)
+- Replaced the Java library nativecall_0.4.1.jar. - Done using JRE 6 and naming the jar nativecall_0.6.0.jar.
+- Next step: Fix error when compiling the jabaco source files (line 68 in the Ant build.xml).
+  Error is shown in last line of jabacoframework\Framework\bin-tmp\build.log.
+  "Compile error. Class: 'Global' line: 461 => Class 'Console' not found!"
+  Compilation line in a console is:
+  C:\Users\gfuch\Projects\jabacoframework>"\Program Files (x86)\Jabaco\Jabaco.exe" -projectpath=Framework\src\VB\Framework.jba -d=.\bin-tmp
+  When compiling, the "Implemented" XML tags are replaced. The tags are not separated by white space.
+    Command line to compile the sample ConsoleQuiz:
+  "\Program Files (x86)\Jabaco\Jabaco.exe -projectpath=\Users\gfuch\Projects\jabacoframework\Samples\ConsoleQuiz\Quiz.jba -d=\Users\gfuch\Projects\jabacoframework\Samples\ConsoleQuiz\bin-tmp
+    Command line to run the sample ConsoleQuiz (with Jabaco.jar having been copied into the app folder):
+  C:\Users\gfuch\Projects\jabacoframework\Samples\ConsoleQuiz\bin-tmp>java -cp Jabaco.jar;ConsoleQuiz.jar Module1
+  The sample console application runs successfully.
+    Command line to compile SeisWin:
+  C:\Users\gfuch\Projects\SeisWin 2.6f - with Jabaco project>"\Program Files (x86)\Jabaco\Jabaco.exe" -projectpath=SeisWin26f.jba -d=bin-tmp
+  Compiler output to bin-tmp\build.log shows error in line 24 of VBIB32.BAS, probably because the compiler does not understand the VB keyword "Declare".
+    Compilation of Calculator Sample project works but it does not run. Error message:
+  Exception in thread "main" java.lang.ClassFormatError: Illegal class modifiers in class VB/ILoadAdapter: 0x201
+    ****** ILoadAdapter.class ************
+    // Compiled from ILoadAdapter.jsrc (version 1.6 : 50.0, no super bit)
+    public interface VB.ILoadAdapter {
+
+      // Method descriptor #4 ()V
+      public abstract void fireLoaded();
+
+      // Method descriptor #7 (Ljava/lang/Object;)V
+      public abstract void fireLoaded(java.lang.Object arg0);
+    }
+    *****************************
+  Command line:
+    C:\Users\gfuch\Projects\jabacoframework\Samples\Calculator\bin-tmp>"C:\Program Files (x86)\Java\jre6\bin\java.exe" -cp ..\..\..\Framework\bin\Jabaco.jar;Calc.jar Module1
+    Conclusion:
+  NativeCall 0.4.1 needs to be compiled with jre4. There is no newer version of NativeCall available, but it can be modified
+  so that it compiles with jre6.
+  Jabaco.exe seems to compile jabacoframework\Framework\src\VB with an inbuilt jre6, because the class files contain the info about version 1.6 : 50
+  which probably means java version 1.6, javac version 50, see
+  https://stackoverflow.com/questions/9170832/list-of-java-class-file-format-major-version-numbers.
+  see class code above. 
+  Folder jabaco\src\VBA gets compiled with the javac configured in the ant file build.xml.
+  The class files can be shown in Eclipse when selected in the tmp-bin folder, but not when selected in bin\jabaco.jar.
+  But NetBeans can also show class files inside bin\jabaco.jar but it might be sho.wing imports incorrectly. For example,
+  it shows com.eaio.nativecall.Verifiers importing sun.misc.ServiceConfigurationError which is JRE 4 whereas Eclipse Bytecode Outline View
+  shows the class being compiled using JRE 7.
+  
+  The original jabaco.jar seems to be older than the latest version in source control.
+  For example, VB\Global.jsrc contains functions that are not found in jabaco.jar\VB\Global.class.
+  Also, jabaco.jar does not contain the VBA.Cursors class and the JabacoEventQueue class is spelled JabacoEventQueque.
+  Therefore, compiling the *.jsrc files using the original jabaco.jar leads to two errors 
+  (stopping at the first error which is caused by the missing VBA.Cursors class) because jabaco.exe is not looking at
+  the tmp-bin\VBA folder when compiling but at the jabaco.jar in the folder where jabaco.exe resides.
+
+- Decompiled new jabaco.jar using Eclipse plugin "Install Jar as Project" which uses CFR 0.151 as the decompiling engine.
+- Compiled VB.ILoadAdapter to replace the respective file in the new jabaco.jar.
+  Replacing steps:
+  - Compile decompiled ILoadAdapter:
+    \Users\gfuch\eclipse-workspace\Jabaco\src\main\java\VB>"\Program Files (x86)\java\jdk6\bin\javac.exe" ILoadAdapter.java
+  - Eclipse Ant build jacaboframework without creating jar. (Comment out the and jar section.)
+  - Copy the recompiled ILoadAdapter.class to the tmp-bin\VB folder overriding the class that jabaco.exe had built.
+  - Build jabacoframework, now without compiling the *.jsrc files but with creating jabaco.jar.
+  - Replace jabaco.jar in the jabaco installation folder with the one generated in the previous step.
+  - Run jabaco.exe, open the Calculator example and press F6. Now the error is:
+    "java.lang.ClassFormatError: Illegal class modifiers in class VB/IJabacoForm: 0x201"
+
+________________________________________________________________________________
+12/23/2024
+- Next steps:
+  Because the error is now related to another interface class, just replacing the interface classes
+  generated by jabaco.exe with the de- and re-compiled versions might fix the error.

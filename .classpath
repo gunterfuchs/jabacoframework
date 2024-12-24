@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk6">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="Framework/doclet/src"/>
+	<classpathentry kind="src" path="Framework/jabacotask"/>
+	<classpathentry kind="src" path="Framework/src"/>
+	<classpathentry kind="lib" path="Framework/doclet/bin/JBCDoclet.jar"/>
+	<classpathentry kind="lib" path="/NativeCall/nativecall-0.6.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

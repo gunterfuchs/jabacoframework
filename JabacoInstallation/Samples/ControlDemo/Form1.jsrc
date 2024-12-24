@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SourceFile><Source><![CDATA[Dim myUserTable As New GenericTable 
+Dim myProductTable As New GenericTable 
+Dim myStats As New Stats
+
+Private Sub InitUserTable()
+   Dim i As Integer
+   Dim UserData(0 To 9, 0 To 2) As String, UserHeader(0 To 2) As String 
+   UserHeader(0) = "LastName"
+   UserHeader(1) = "FirstName"
+   UserHeader(2) = "DayOfBirth"
+   For i = 0 To Ubound(UserData)
+       UserData(i, 0) = "Kate" & i
+       UserData(i, 1) = "Austen" & i
+       UserData(i, 2) = "0" & i & ".02.1980"
+   Next
+   myUserTable.SetHeader UserHeader
+   myUserTable.SetData UserData
+End Sub
+
+Private Sub InitProductTable()
+   ' ...
+End Sub
+
+Private Sub CreateMenu()
+   Dim mnuFile As VB#VBMenuGroup = MenuBar.createMenuGroup(Nothing, "File", "File")
+   MenuBar.createMenu mnuFile, "mnuShowChart", "Show chart", True, ChartpiePng
+   MenuBar.createMenu mnuFile, "mnuShowUsers", "Show user table", True, UsergrayPng
+   MenuBar.createMenu mnuFile, "mnuShowProducts", "Show product table", True, BasketPng
+End Sub
+
+Private Sub CreateToolBar()
+   ToolBar.createToolBarItem "tabShowChart", vbNullString, "Show Chart", ChartpiePng
+   ToolBar.createToolBarItem "tabShowUsers", vbNullString, "Show Chart", UsergrayPng
+   ToolBar.createToolBarItem "tabShowProducts", vbNullString, "Show Chart", BasketPng
+End Sub
+
+Private Sub CreateTabStrip()
+   TabStrip1.Tabs.Add myStats, "Stats", ChartpiePng
+   TabStrip1.Tabs.Add myUserTable, "Users", UsergrayPng
+   TabStrip1.Tabs.Add myProductTable, "Products", BasketPng
+   TabStrip1.Tabs.Add New SplitPane(), "SplitPane Demo"   
+   TabStrip1.Tabs.Add New ProgressDemo(), "ProgressBar Demo"   
+   TabStrip1.Tabs.Add New PictureDemo(), "PictureBox Demo"   
+   TabStrip1.Tabs.Add New SampleControls(), "Controls"
+End Sub
+
+Public Sub Form_Load()
+   Call InitUserTable()
+   Call InitProductTable()
+   Call CreateMenu()
+   Call CreateToolBar()
+   Call CreateTabStrip()
+End Sub
+
+Public Sub Form_MenuClick(MenuItem As IMenuItem)
+   Select Case MenuItem.ControlID
+      Case "mnuShowChart": TabStrip1.SelectedIndex = 1
+      Case "mnuShowUsers": TabStrip1.SelectedIndex = 2
+      Case "mnuShowProducts": TabStrip1.SelectedIndex = 3
+   End Select
+End Sub
+
+Public Sub Form_ToolBarClick(ToolBarItem As IToolBarItem)
+   Select Case ToolBarItem.ControlID
+      Case "tabShowChart": TabStrip1.SelectedIndex = 1
+      Case "tabShowUsers": TabStrip1.SelectedIndex = 2
+      Case "tabShowProducts": TabStrip1.SelectedIndex = 3
+   End Select
+End Sub
+]]></Source><Param Name="(Name)" Value="Form1"/><Param Name="(SuperClass)" Value="VB/Form"/><Param Name="(NameSpace)" Value=""/><Param Name="(Type)" Value="Form"/><Param Name="(Access)" Value="Public"/><Param Name="StartUpPosition" Value="vbStartUpScreen"/><Param Name="DrawWidth" Value="1"/><Param Name="BorderStyle" Value="vbFixedDialog"/><Param Name="AlwaysOnTop" Value="False"/><Param Name="Transparency" Value="0"/><Param Name="AntiAliasing" Value="False"/><Param Name="AutoRedraw" Value="False"/><Param Name="Caption" Value="JabacoForm"/><Param Name="MenuBackColor" Value="-2147483644"/><Param Name="MenuForeColor" Value="-2147483641"/><Param Name="ToolBackColor" Value="-2147483644"/><Param Name="ToolForeColor" Value="-2147483641"/><Param Name="WindowState" Value="vbNormal"/><Param Name="Picture" Value="Nothing"/><Param Name="Icon" Value="Nothing"/><Param Name="Left" Value="0"/><Param Name="Top" Value="0"/><Param Name="Width" Value="690"/><Param Name="Height" Value="490"/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="BackColor" Value="-2147483633"/><Param Name="ForeColor" Value="-2147483630"/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Object Type="VB/TabStrip"><Param Name="SelectIndex" Value="1"/><Param Name="TabOrientation" Value="fmTabOrientationTop"/><Param Name="FontName" Value="Arial"/><Param Name="FontBold" Value="False"/><Param Name="FontItalic" Value="False"/><Param Name="FontSize" Value="9"/><Param Name="BackColor" Value="-2147483633"/><Param Name="ForeColor" Value="-2147483630"/><Param Name="Width" Value="673"/><Param Name="Height" Value="433"/><Param Name="Left" Value="8"/><Param Name="Top" Value="8"/><Param Name="ToolTip" Value=""/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="Tag" Value=""/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Param Name="(Name)" Value="TabStrip1"/></Object><Param Name="FontName" Value="Arial"/><Param Name="FontBold" Value="False"/><Param Name="FontItalic" Value="False"/><Param Name="FontSize" Value="9"/></SourceFile>

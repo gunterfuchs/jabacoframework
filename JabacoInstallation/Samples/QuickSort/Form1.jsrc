@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SourceFile><Source><![CDATA[Option Explicit
+' SOURCE: http://www.activevb.de/tipps/vb6tipps/tipp0188.html
+
+Dim Feld(0 To 500) As String
+
+Private Sub Form_Load()
+    Call Shuffle
+End Sub
+
+Private Sub Command1_Click()
+    Dim X As Integer
+    Call QuickSort(LBound(Feld), UBound(Feld))
+    List2.Clear
+    For X = 0 To UBound(Feld)
+        List2.AddItem Feld(X)
+    Next X
+End Sub
+
+Private Sub Command2_Click()
+    Call Shuffle
+End Sub
+
+Private Sub QuickSort(ByVal LB As Long, ByVal UB As Long)
+    Dim P1 As Long, P2 As Long, Ref As String, TEMP As String
+    P1 = LB
+    P2 = UB
+    Ref = Feld((P1 + P2) / 2)
+    Do
+        Do While (Feld(P1) < Ref)
+            P1 = P1 + 1
+        Loop
+         Do While (Feld(P2) > Ref)
+            P2 = P2 - 1
+        Loop
+        If P1 <= P2 Then
+            TEMP = Feld(P1)
+            Feld(P1) = Feld(P2)
+            Feld(P2) = TEMP
+            P1 = P1 + 1
+            P2 = P2 - 1
+        End If
+    Loop Until (P1 > P2)
+    If LB < P2 Then Call QuickSort(LB, P2)
+    If P1 < UB Then Call QuickSort(P1, UB)
+End Sub
+
+Private Sub Shuffle()
+    Dim X As Integer, y As Integer, aa As String
+    List1.Clear
+    Randomize
+    For X = 0 To UBound(Feld)
+        aa = ""
+        For y = 0 To 5
+            aa = aa & Chr$(Rnd * 25 + 65)
+        Next y
+        List1.AddItem aa
+        Feld(X) = aa
+    Next X
+End Sub
+]]></Source><Param Name="(Name)" Value="Form1"/><Param Name="(SuperClass)" Value="VB/Form"/><Param Name="(NameSpace)" Value=""/><Param Name="(Type)" Value="Form"/><Param Name="(Access)" Value="Public"/><Param Name="StartUpPosition" Value="vbStartUpScreen"/><Param Name="DrawWidth" Value="1"/><Param Name="BorderStyle" Value="vbFixedSingle"/><Param Name="AlwaysOnTop" Value="False"/><Param Name="Transparency" Value="0"/><Param Name="AntiAliasing" Value="False"/><Param Name="AutoRedraw" Value="False"/><Param Name="Caption" Value="Jabaco QuickSort"/><Param Name="MenuBackColor" Value="-2147483644"/><Param Name="MenuForeColor" Value="-2147483641"/><Param Name="ToolBackColor" Value="-2147483644"/><Param Name="ToolForeColor" Value="-2147483641"/><Param Name="WindowState" Value="vbNormal"/><Param Name="Picture" Value="Nothing"/><Param Name="Left" Value="0"/><Param Name="Top" Value="0"/><Param Name="Width" Value="265"/><Param Name="Height" Value="217"/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="BackColor" Value="-2147483633"/><Param Name="ForeColor" Value="-2147483630"/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Object Type="VB/CommandButton"><Param Name="Caption" Value="Fill dummy"/><Param Name="Picture" Value="Nothing"/><Param Name="RolloverPicture" Value="Nothing"/><Param Name="PicturePosition" Value="fmPicturePositionLeftCenter"/><Param Name="FontName" Value="Arial"/><Param Name="FontBold" Value="False"/><Param Name="FontItalic" Value="False"/><Param Name="FontSize" Value="9"/><Param Name="BackColor" Value="-2147483633"/><Param Name="ForeColor" Value="-2147483630"/><Param Name="Width" Value="121"/><Param Name="Height" Value="25"/><Param Name="Left" Value="8"/><Param Name="Top" Value="184"/><Param Name="ToolTip" Value=""/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="Tag" Value=""/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Param Name="(Name)" Value="Command2"/></Object><Object Type="VB/ListBox"><Param Name="MultiSelect" Value="fmMultiSelectSingle"/><Param Name="BackColorSel" Value="-2147483635"/><Param Name="ForeColorSel" Value="-2147483634"/><Param Name="ListIndex" Value="-1"/><Param Name="Style" Value="vbListBoxStandard"/><Param Name="FontName" Value="Arial"/><Param Name="FontBold" Value="False"/><Param Name="FontItalic" Value="False"/><Param Name="FontSize" Value="9"/><Param Name="BackColor" Value="-2147483643"/><Param Name="ForeColor" Value="-2147483640"/><Param Name="Width" Value="121"/><Param Name="Height" Value="173"/><Param Name="Left" Value="136"/><Param Name="Top" Value="8"/><Param Name="ToolTip" Value=""/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="Tag" Value=""/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Param Name="(Name)" Value="List2"/></Object><Object Type="VB/CommandButton"><Param Name="Caption" Value="Sort"/><Param Name="Picture" Value="Nothing"/><Param Name="RolloverPicture" Value="Nothing"/><Param Name="PicturePosition" Value="fmPicturePositionLeftCenter"/><Param Name="FontName" Value="Arial"/><Param Name="FontBold" Value="False"/><Param Name="FontItalic" Value="False"/><Param Name="FontSize" Value="9"/><Param Name="BackColor" Value="-2147483633"/><Param Name="ForeColor" Value="-2147483630"/><Param Name="Width" Value="121"/><Param Name="Height" Value="25"/><Param Name="Left" Value="136"/><Param Name="Top" Value="184"/><Param Name="ToolTip" Value=""/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="Tag" Value=""/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Param Name="(Name)" Value="Command1"/></Object><Object Type="VB/ListBox"><Param Name="MultiSelect" Value="fmMultiSelectSingle"/><Param Name="BackColorSel" Value="-2147483635"/><Param Name="ForeColorSel" Value="-2147483634"/><Param Name="ListIndex" Value="-1"/><Param Name="Style" Value="vbListBoxStandard"/><Param Name="FontName" Value="Arial"/><Param Name="FontBold" Value="False"/><Param Name="FontItalic" Value="False"/><Param Name="FontSize" Value="9"/><Param Name="BackColor" Value="-2147483643"/><Param Name="ForeColor" Value="-2147483640"/><Param Name="Width" Value="121"/><Param Name="Height" Value="173"/><Param Name="Left" Value="8"/><Param Name="Top" Value="8"/><Param Name="ToolTip" Value=""/><Param Name="Enabled" Value="True"/><Param Name="Visible" Value="True"/><Param Name="Tag" Value=""/><Param Name="MousePointer" Value="vbDefault"/><Param Name="MouseIcon" Value="Nothing"/><Param Name="CanGetFocus" Value="True"/><Param Name="(Name)" Value="List1"/></Object></SourceFile>

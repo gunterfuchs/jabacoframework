@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ <Jabaco type="language">
+	<Information>
+		<Item Name="Name" value="Russian"/>
+		<Item Name="Codepage" value="204" name="Cyrillic"/>
+	</Information>
+	<MainForm>
+		<Item Name="Line" value="Line" />		
+		<Item Name="mnuFile" value="Файл" />
+			<Item Name="mnuNew" value="Новый проект..."/>
+			<Item Name="mnuOpen" value="Открыть проект..."/>
+			<Item Name="mnuSave" value="Сохранить проект"/>
+			<Item Name="mnuSaveAs" value="Сохранить проект как..."/>
+			<Item Name="mnuClose" value="Закрыть проект"/>
+			<Item Name="mnuCreateDoc" value="Создать документацию..."/>
+			<Item Name="mnuCreate" value="Создать приложение..."/>
+			<Item Name="mnuEnd" value="Выход"/>
+		<Item Name="mnuEdit" value="Правка"/>
+			<Item Name="mnuUndo" value="Отменить"/>
+			<Item Name="mnuRedo" value="Вернуть"/>
+			<Item Name="mnuCut" value="Вырезать"/>
+			<Item Name="mnuCopy" value="Копировать"/>
+			<Item Name="mnuPaste" value="Вставить"/>
+			<Item Name="mnuDelete" value="Удалить"/>
+			<Item Name="mnuPrint" value="Печать"/>
+			<Item Name="mnuSelectAll" value="Select All"/>
+			<Item Name="mnuRefreshAC" value="Обновить"/>
+			<Item Name="mnuAddDoc" value="Добавить документы"/>
+			<Item Name="mnuSearch" value="Найти"/>
+			<Item Name="mnuSearchThrough" value="Найти далее"/>
+			<Item Name="mnuReplace" value="Найти и заменить"/>
+			<Item Name="mnuGotoDefinition" value="Определение"/>
+			<Item Name="mnuGotoLastPosition" value="Предыдущее положение"/>
+			<Item Name="mnuLookAndFeel" value="Просмотреть"/>
+		<Item Name="mnuProject" value="Проект"/>
+			<Item Name="mnuRun" value="Выполнить"/>
+			<Item Name="mnuRunFull" value="Выполнить с полной компиляцией"/>
+			<Item Name="mnuEndBlockStep" value="Процедура по шагам"/>
+			<Item Name="mnuSingleStep" value="На шаг вперед"/>
+			<Item Name="mnuBlockStep" value="Остановить"/>
+			<Item Name="mnuReturnStep" value="На шаг назад"/>
+			<Item Name="mnuWorkingDirectory" value="Открыть рабочую папку"/>
+			<Item Name="mnuToggleBreakpoint" value="Установить точку остановки"/>
+			<Item Name="mnuToggleMarker" value="Поставить закладку"/>
+			<Item Name="mnuGotoMarker" value="Перейти к закладке"/>
+			<Item Name="mnuImports" value="Настройки"/>
+		<Item Name="mnuExtras" value="Дополнительно"/>
+			<Item Name="mnuOptions" value="Опции"/>
+			<Item Name="mnuLanguageList" value="Язык интерфейса"/>
+		<Item Name="mnuHelp" value="Справка"/>
+			<Item Name="mnuWebPage" value="Домашняя стрница"/>
+			<Item Name="mnuWebCommunity" value="Форум сообщества"/>
+			<Item Name="mnuOrder" value="Зарегистрировать"/>
+			<Item Name="mnuUpdate" value="Проверить наличие обновлений..."/>
+			<Item Name="mnuInfo" value="О программе"/>
+		<Item Name="cmdAddClass" value="Добавить..."/>
+		<Item Name="mnuAddClass" value="Добавить..."/>
+			<Item Name="mnuForm" value="Форма"/>
+			<Item Name="mnuDialog" value="Диалоговое окно"/>
+			<Item Name="mnuMDIForm" value="Родительская форма (контейнер)"/>
+			<Item Name="mnuMDIChild" value="Дочерняя форма"/>
+			<Item Name="mnuApplet" value="Аплет"/>
+			<Item Name="mnuUsercontrol" value="Вкладка формы"/>
+			<Item Name="mnuModul" value="Модуль"/>
+			<Item Name="mnuClass" value="Класс"/>
+			<Item Name="mnuInterface" value="Интерфейс"/>
+			<Item Name="mnuResource" value="Источник"/>
+			<Item Name="mnuSaveFileAs" value="Сохранить как..."/>
+			<Item Name="mnuAddFile" value="Добавить"/>
+			<Item Name="mnuDelete" value="Удалить"/>
+		<Item Name="mnuComment" value="Закомментировать"/>
+		<Item Name="mnuUnComment" value="Убрать комментарий"/>
+		<Item Name="mnuNextPage" value="Следующая страница"/>
+		<Item Name="mnuLastPage" value="Предыдущая страница"/>
+		<Item Name="mnuStop" value="Приостановить"/>
+		<Item Name="mnuCancel" value="Завершить"/>
+		<Item Name="mnuGotoFlag" value="Перейти к флажку"/>
+		<Item Name="mnuAddFlag" value="Поставить флажок"/>
+		<Item Name="mnuRemoveFlag" value="Удалить флажок"/>
+		<Item Name="mnuStackTrace" value="Показать стек-историю"/>
+		<Item Name="cmdRefresh" value="Обновить"/>
+		<Item Name="lblPropertiesTitle" value="Свойства"/>
+		<Item Name="lblProjectExplorerTitle" value="Проект"/>
+		<Item Name="lblToolBoxTitle" value="Элементы"/>
+		<Item Name="cmdColorDialog" value="Открыть палитру"/>	
+		<Item Name="treeProject" value="Проект"/>
+		<Item Name="treeForms" value="Формы"/>
+		<Item Name="treeModules" value="Модули"/>
+		<Item Name="treeClasses" value="Классы"/>
+		<Item Name="treeInterfaces" value="Интерфейсы"/>
+		<Item Name="treeResources" value="Источники"/>
+		<Item Name="lblImportStatusTitle" value="Импортировать..."/>
+		<Item Name="(General)" value="(General)"/>
+		<Item Name="(Declarations)" value="(Declarations)"/>
+		<Item Name="cmdDialogYes" value="Да"/>
+		<Item Name="cmdDialogPerm" value="Для всех"/>
+		<Item Name="cmdDialogCancel" value="Отмена"/>
+		<Item Name="lblRemoveMessage" value="Вы действительно хотите убрать этот файл из проекта?"/>
+	</MainForm>
+	<Register>
+		<Item Name="lblState" value="State:" />
+		<Item Name="lblMail" value="E-Mail:" />
+		<Item Name="lblKey" value="Key:" />
+		<Item Name="lblTopic" value="Зарегистрируйтесь, чтобы воспользоваться всеми функциями Jabaco." />		
+		<Item Name="lblInfo" value="Ваш ключ выслан на указанный адрес электронной почты." />
+		<Item Name="cmdActivate" value="Зарегистрировать" />
+		<Item Name="cmdOrder" value="Приобрести..." />
+		<Item Name="cmdLater" value="Позже" />
+		<Item Name="cmdClose" value="Закрыть" />
+	</Register>
+    <Update>
+		<Item Name="lblTopic" value="Для Jabaco доступно обновление!" />
+		<Item Name="lblDownloadCaption" value="Download:" />
+		<Item Name="lblVersionCaption" value="Version-History:" />
+		<Item Name="cmdClose" value="Закрыть" />
+	</Update>
+	<InfoForm>
+		<Item Name="cmdClose" value="Закрыть"/>
+	</InfoForm>
+	<Classbrowser>
+		<Item Name="lblTopic" value="Директории:"/>
+		<Item Name="lblMissingClasspath" value="Missing classes"/>
+		<Item Name="lblClassName" value="Поиск:"/>
+		<Item Name="cmdAddJar" value="Добавить Jar-архив..."/>
+		<Item Name="cmdAddFolder" value="Добавить папку..."/>
+		<Item Name="cmdDeleteClasspath" value="Удалить архив"/>
+		<Item Name="cmdFindClass" value="Найти"/>
+		<Item Name="cmdShowClass" value="Показать"/>
+		<Item Name="cmdClose" value="Закрыть"/>
+		<Item Name="cmdClean" value="Очистить"/>
+		<Item Name="cmdBack" value="Закрыть"/>
+		<Item Name="mnuCopy" value="Копировать имя"/>
+		<Item Name="mnuCopyFull" value="Копировать путь"/>
+	</Classbrowser>
+	<Classfinder>
+		<Item Name="lblTopic" value="Укажите класс:"/>
+		<Item Name="cmdSelect" value="{amp}Выбрать"/>
+		<Item Name="cmdClose" value="{amp}Закрыть"/>
+	</Classfinder>
+	<NewProject>
+		<Item Name="lblCaption" value="Начальное окно Jabaco"/>
+		<Item Name="tabNew" value="Новый проект"/>
+		<Item Name="tabCurrent" value="Недавние проекты"/>
+		<Item Name="cmdOpenProject" value="Открыть проект..."/>
+		<Item Name="cmdOpen" value="Создать"/>
+		<Item Name="cmdCancel" value="Выйти"/>
+		<Item Name="optWinProject" value="Простое приложение"/>
+		<Item Name="optMDIProject" value="Мультиоконное приложение"/>
+		<Item Name="optWebProject" value="Приложение интернета"/>
+		<Item Name="optDOSProject" value="Консольное приложение"/>
+		<Item Name="optComponent" value="Библиотека класса"/>
+		<Item Name="lblFile" value="Проект"/>
+		<Item Name="lblPath" value="Директория"/>
+	</NewProject>
+	<SearchDialog>
+		<Item Name="lblCaption" value="Найти"/>
+		<Item Name="cmdSearch" value="Искать"/>
+		<Item Name="cmdSearchNormal" value="Искать далее"/>
+		<Item Name="cmdSearchReplace" value="Заменить"/>
+		<Item Name="cmdCancel" value="Закрыть"/>
+		<Item Name="cmdSetReplaceModeOn" value="Режим замены ..."/>
+		<Item Name="cmdSetReplaceModeOff" value="Режим поиска ..."/>
+		<Item Name="cmdReplace" value="Заменить"/>
+		<Item Name="cmdReplaceAll" value="Заменить все"/>
+		<Item Name="lblSearch" value="Найти фразу:"/>
+		<Item Name="lblReplace" value="Заменить на:"/>
+		<Item Name="frmSearchLimit" value="Искать в:"/>
+		<Item Name="optSearchBy1" value="Тексте"/>
+		<Item Name="optSearchBy2" value="Модуле"/>
+		<Item Name="optSearchBy3" value="Проекте"/>
+		<Item Name="chkSearchWord" value="Искать слово целиком"/>
+		<Item Name="chkCaseSensitive" value="Похожие результаты"/>
+		<Item Name="chkSearchList" value="Показать результаты"/>
+		<Item Name="lblListCountText" value="Элемент(ов)"/>
+		<Item Name="lblDirection" value="Направление:"/>
+		<Item Name="cboDirectionUp" value="Выше"/>
+		<Item Name="cboDirectionDown" value="Ниже"/>
+		<Item Name="cmdJumpTo" value="Перейти"/>
+		<Item Name="lblSource" value="Найдено в"/>
+		<Item Name="lblLine" value="Номер строки"/>
+		<Item Name="lblText" value="Полный текст кода"/>
+	</SearchDialog>
+	<GeneralText>
+		<Item Name="ExeFile" value="Exe-File"/>
+		<Item Name="JarFileWithHTML" value="Jar-File + HTML"/>
+		<Item Name="JarFile" value="Jar-File"/>
+		<Item Name="AllFiles" value="All files"/>
+	</GeneralText>
+	<Messages>
+		<Item Name="SEARCH_NOTFOUND" value="Не выбран текст для поиска"/>
+		<Item Name="SEARCH_REPLACE_ELEMENTS" value="Выделенный текст исправлен"/>
+		<Item Name="SEARCH_REPLACE_ELEMENTS_COUNT" value="Исправления в '%1' завершены"/>
+		<Item Name="FILE_NOT_FOUND" value="Файл не найден: '%1'!"/>
+		<Item Name="DEBUGGER_RESTART" value="Это действие перезапустит проект. Вы хотите продолжить?"/>
+		<Item Name="INTERFACE_NOT_IMPLEMENTED" value="Этот класс выполняется: '%1'. Вы хотите применить все необходимые методы для этого интерфейса?"/>
+		<Item Name="PROJECT_END_WHILERUNNING" value="Это действие приведет к остановке отладчика. Вы хотите продолжить?"/>
+		<Item Name="PROJECT_END_SAVECHANGES" value="Сохранить изменения?"/>
+		<Item Name="PROJECT_CREATEFILE_ERROR" value="Ошибка создания '%1'!"/>
+		<Item Name="PROJECT_SELECT_PROJECT" value="Выберете проект!"/>
+		<Item Name="GUICLASS_NOTFOUND" value="Ошибка загрузки. Класс '%2', используемый '%1', не найден! Удалить '%1'?"/>
+		<Item Name="CLASSBROWSER_NOSEL" value="Назначьте класс!"/>
+		<Item Name="CLASSBROWSER_CORESEL" value="Невозможно удалить используемый класс!"/>
+		<Item Name="CLASSBROWSER_CONFIRMDELETE" value="Вы действительно хотите удалить класс '%1' из проекта?"/>
+		<Item Name="CLASSBROWSER_DELETE_ERROR" value="Невозможно удалить класс!"/>
+		<Item Name="JABACO_CANTFIND_SIGNATURE" value="Отсутствует запись. Переменная: '%1' Метод: '%2' Класс: '%3' !" />
+		<Item Name="GUIEDITOR_PASTE_SELCONTAINER" value="Выберете контейнер!"/>
+		<Item Name="GUIEDITOR_PASTE_INVALID" value="Недопустимый формат!"/>
+		<Item Name="PROJECT_LOAD_ERROR" value="Ошибка загрузки. '%1' не может быть загружен!"/>
+		<Item Name="PROJECT_NOTFOUND" value="Проект '%1' не найден"/>
+		<Item Name="COMPILER_ERROR" value="Ошибка компиляции. Класс: '%1' строка: %2{crlf}%3 не найден"/>
+	</Messages>
+	<CompilerMessages>
+		<Item Name="GLOBAL::MISSING_CONSTRUCTOR" value="Сборщик для класса '%1' не найден!"/>
+		<Item Name="GLOBAL::MISSING_CONSTRUCTOR_UNKNOWN" value="Сборщик не найден!"/>
+		<Item Name="GLOBAL::MISSING_EVENT" value="Событие не найдено!"/>
+		<Item Name="GLOBAL::MISSING_BASECLASS" value="Основной класс '%1' не найден!"/>
+		<Item Name="GLOBAL::MISSING_BASECLASS_UNKNOWN" value="Основной класс не найден!"/>
+		<Item Name="GLOBAL::MISSING_CLASS" value="Класс '%1' не найден!"/>
+		<Item Name="GLOBAL::MISSING_CLASS_UNKNOWN" value="Класс не найден!"/>
+		<Item Name="GLOBAL::MISSING_CLASS_BYGUIOBJECT" value="Класс для '%1' не найден!"/>
+		<Item Name="GLOBAL::MISSING_CLASS_BYPROPERTY" value="Класс для свойства '%1' не найден!"/>
+		<Item Name="GLOBAL::MISSING_VAR" value="Переменная '%1' не задана!"/>
+		<Item Name="GLOBAL::MISSING_ENDENUM" value="Enum не завершен End Enum"/>
+		<Item Name="GLOBAL::MISSING_ENDTYPE" value="Type не завершен End Type"/>
+		<Item Name="GLOBAL::MISSING_ENDPROPERTY" value="Property не завершен End Property"/>
+		<Item Name="GLOBAL::MISSING_ENDSUB" value="Sub не завершен End Sub"/>
+		<Item Name="GLOBAL::MISSING_ENDFUNCTION" value="Function не завершен End Function"/>
+		<Item Name="GLOBAL::MISSING_FOR" value="Exit For не содержит For"/>
+		<Item Name="GLOBAL::MISSING_DO" value="Exit Do не содержит Do"/>
+		<Item Name="GLOBAL::MISSING_WEND" value="Function не завершен End Function"/>
+
+		<Item Name="GLOBAL::UNEXPECTED_END" value="Ошибка: неожиданное завершение предложения!"/>
+		<Item Name="GLOBAL::UNEXPECTED_ARRAY" value="Ошибка: массив!"/>
+		<Item Name="GLOBAL::UNEXPECTED_EXITCODE" value="Ошибка: End или Exit!"/>
+		<Item Name="GLOBAL::UNEXPECTED_ERROR" value="Ошибка компиляции: '%1'!"/>
+		<Item Name="GLOBAL::UNEXPECTED_OPERATOR" value="Ошибка: Оператор '%s'!"/>
+		<Item Name="GLOBAL::UNEXPECTED_OPERATOR_UNKNOWN" value="Ошибка: Неизвестный оператор!"/>
+		<Item Name="GLOBAL::UNEXPECTED_ENDLINE" value="Ошибка: конец строки!"/>
+		<Item Name="GLOBAL::UNEXPECTED_ELSE" value="Else вместо If"/>
+		<Item Name="GLOBAL::UNEXPECTED_ELSEIF" value="ElseIf вместо If"/>
+		<Item Name="GLOBAL::UNEXPECTED_ELSECASE" value="Case Else вместо Select Case"/>
+		<Item Name="GLOBAL::UNEXPECTED_CASE" value="Case вместо Select Case"/>
+		<Item Name="GLOBAL::UNEXPECTED_BASECLASS_INTERFACE" value="Недопустимый базовый класс!"/>
+		<Item Name="GLOBAL::UNEXPECTED_BYJAVA" value="Идентификатор!"/>
+		<Item Name="GLOBAL::UNEXPECTED_ASSIGN_BYJAVA_MULTIDIMENSION" value="Одномерный массив!"/>
+		<Item Name="GLOBAL::UNEXPECTED_BYVAL" value="Идентификатор!'"/>
+		<Item Name="GLOBAL::UNEXPECTED_INSTRUCTION" value="Функция или переменная не определены!"/>
+		<Item Name="GLOBAL::UNEXPECTED_ENUMVALUE" value="Тип несовместим!"/>
+		
+		<Item Name="GLOBAL::EXPECTED" value="Задайте: %1"/>
+		<Item Name="GLOBAL::EXPECTED_IDENTIFIER" value="Идентификатор!"/>
+		<Item Name="GLOBAL::EXPECTED_FUNCTION_OR_VAR" value="Переменная или функция!"/>
+		<Item Name="GLOBAL::EXPECTED_LABEL" value="Задайте: Label"/>
+		<Item Name="GLOBAL::EXPECTED_GOTO_OR_RESUME" value="Укажите: GoTo или Resume"/>
+		<Item Name="GLOBAL::EXPECTED_EXPRESSION" value="Задайте: Expression"/>
+		<Item Name="GLOBAL::EXPECTED_OBJECT" value="Задайте: Object"/>
+		<Item Name="GLOBAL::EXPECTED_SYMBOL" value="Укажите: Symbol"/>
+		<Item Name="GLOBAL::EXPECTED_CLASS" value="Задайте: Class"/>
+		<Item Name="GLOBAL::EXPECTED_STATIC_METHOD" value="Укажите: Статический метод"/>
+		<Item Name="GLOBAL::EXPECTED_WHILE_OR_UNTIL" value="Задайте: While или Until или End оператора"/>
+		<Item Name="GLOBAL::EXPECTED_ASSIGNMENT" value="Укажите назначение"/>
+		<Item Name="GLOBAL::EXPECTED_CONSTANT_OR_VAR_OR_EXPRESSION" value="Задайте переменную оператора"/>
+		<Item Name="GLOBAL::EXPECTED_NUMBER" value="Задайте: Number!"/>
+		<Item Name="GLOBAL::EXPECTED_INSTRUCTIONEND" value="Задайте End оператора"/>
+		<Item Name="GLOBAL::EXPECTED_IDENTIFIER" value="Задайте идентификатор"/>
+		<Item Name="GLOBAL::EXPECTED_STEP_OR_INSTRUCTIONEND" value="Задайте Step или End оператора"/>
+		<Item Name="GLOBAL::EXPECTED_CASE" value="Укажите: Case"/>
+		<Item Name="GLOBAL::EXPECTED_ARRAY" value="Укажите Array"/>
+		<Item Name="GLOBAL::EXPECTED_ARRAY_INDEX" value="Укажите индекс массива"/>
+		<Item Name="GLOBAL::EXPECTED_VARIABLE" value="Укажите переменную"/>
+		<Item Name="GLOBAL::EXPECTED_GET_OR_LET" value="Укажите: Get или Let или Set"/>
+		<Item Name="GLOBAL::EXPECTED_THROWABLE" value="Укажите 'Throwable'-переменную"/>
+		<Item Name="GLOBAL::EXPECTED_GOTO_LABEL" value="Укажите: Label"/>
+		<Item Name="GLOBAL::EXPECTED_EVENT" value="Укажите: Event"/>
+		<Item Name="GLOBAL::EXPECTED_BYJAVA_ASSIGN" value="Укажите: массив-Jabaco"/>
+
+		<Item Name="GLOBAL::PROTECTED_CONST" value="Присвоение занчения постоянной недопустимо!"/>
+		<Item Name="GLOBAL::PROTECTED_WITHEVENTS" value="Присвоение WithEvent-переменной недопустимо!"/>
+
+		<Item Name="GLOBAL::UNSUPPORTED_FEATURE" value="Еще не применимо: '%1'"/>
+		<Item Name="GLOBAL::UNSUPPORTED_ASSIGN" value="Присвоение значения '%1' не допустимо!"/>
+		<Item Name="GLOBAL::UNSUPPORTED_DATATYPE_FOR_OPERATION" value="Недопустимый тип данных '%1' для '%2'!"/>
+		<Item Name="GLOBAL::UNSUPPORTED_OUTSIDE_CLASSMODULES" value="Только действительные в объектном модуле!"/>
+
+		<Item Name="GLOBAL::ALREADYEXISTS_EVENT" value="Выявлен неоднозначный случай: '%1'"/>
+		<Item Name="GLOBAL::ALREADYEXISTS_PROPERTY" value="Выявлено неоднозначное свойство: '%1'"/>
+		<Item Name="GLOBAL::ALREADYEXISTS_LABEL" value="Выявлено неоднозначное свойство label: '%1'"/>
+		<Item Name="GLOBAL::ALREADYEXISTS_METHOD" value="Выявлен неоднозначный метод: '%1'"/>
+		<Item Name="GLOBAL::ALREADYEXISTS_VAR_BYMETHOD" value="Выявлена неоднозначная переменная: '%1'"/>
+		<Item Name="GLOBAL::ALREADYEXISTS_VAR_BYCLASS" value="Выявлена неоднозначная переменная: '%1'"/>
+
+		<Item Name="CONVERSION::FAILED" value="Тип несовместим"/>
+		<Item Name="CONVERSION::STACKCONVERSION_TYPE_NOTSUPPORTED" value="Автоматическое преобразование для этого типа данных не поддерживается!"/>
+		<Item Name="CONVERSION::SWITCHSTACK_TYPE_NOTSUPPORTED" value="Автоматическое преобразование для этого типа данных не поддерживается!"/>
+		<Item Name="CONVERSION::BOXING_CLASSNOTFOUND" value="Переходный класс для автопреобразования не найден!"/>
+		<Item Name="CONVERSION::NOT_SUPPORTED" value="Автопреобразование '%1' в '%2' не поддерживается!"/>
+		<Item Name="CONVERSION::NOT_POSSIBLE" value="Тип несовместим. Найденному '%1' требуется '%2'!"/>
+		
+		<Item Name="CHECKINTERFACE::NEW_METHODS_FOUND_RESTART" value="Найден новый метод!"/>
+		<Item Name="CHECKINTERFACE::MISSING_METHODS" value="Отсутствует метод '%1'!"/>
+
+		<Item Name="ENUM::UNSUPPORTED_VALUE" value="Недопустимое значение '%1' для Enum '%2'!"/>
+		<Item Name="ENUM::EMPTY_VALUE" value="Пропущено занчение для Enum '%1'!"/>
+
+		<Item Name="INVOKE::SIGNATURE_ERROR" value="Недопустимая запись метода!"/>
+		<Item Name="INVOKE::STATICMETHOD_USE_CLASSNAME" value="Используйте имя класса для статического метода. {crlf}%1"/>
+		<Item Name="INVOKE::MISSING_METHOD" value="Метод '%1' не находит своих параметров!"/>
+		<Item Name="INVOKE::MISSING_METHOD_BYCLASS" value="Пропущен метод '%2.%1'!"/>
+		<Item Name="INVOKE::MISSING_CONSTRUCTOR" value="Пропущен сборщик!"/>
+		<Item Name="INVOKE::MISSING_CONSTRUCTOR_BYCLASS" value="Сборщик для класса '%1' не находит своих параметров!"/>
+	</CompilerMessages>
+ </Jabaco>

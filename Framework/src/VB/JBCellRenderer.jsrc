@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SourceFile><Source><![CDATA[Option Explicit
+'Implements TableCellRenderer
+
+Dim myGrid As JBGrid
+
+Public Sub JBCellRenderer(refGrid As JBGrid)
+   myGrid = refGrid
+End Sub
+
+Public Function getTableCellRendererComponent(table As JTable, value As Object, isSelected As Boolean, hasFocus As Boolean, row As Integer, col As Integer) As Component
+   Dim myCellData As JBCellData
+   If IsClass(value, JBCellData) Then
+      myCellData = Cast(value, JBCellData)
+      If myCellData.Text <> Null Then 
+         If myGrid.AutoCheckBox = True And IsStringBoolean(myCellData.Text) = True Then
+            Dim myCheck As New JCheckBox
+            myCheck.setHorizontalAlignment(0)
+            myCheck.setOpaque(True)
+            myCheck.setBackground(myCellData.getComponent(myGrid, isSelected, hasFocus, row).getBackground)
+            myCheck.setSelected(GetStringAsBoolean(myCellData.Text))
+            myCheck.setBorderPainted(hasFocus)
+            If hasFocus = True Then myCheck.setBorder(UIManager.getBorder("List.focusCellHighlightBorder"))
+            getTableCellRendererComponent = myCheck
+         Else
+            getTableCellRendererComponent = myCellData.getComponent(myGrid, isSelected, hasFocus, row)
+         End If
+      Else
+         getTableCellRendererComponent = myCellData.getComponent(myGrid, isSelected, hasFocus, row)
+      End If
+      If isSelected = True Then
+         If myGrid.DataMatrix(row, col).CellBackColor <> -1 Then
+            Dim ColSelR As Integer = getTableCellRendererComponent.getBackground.getRed
+            Dim ColSelG As Integer = getTableCellRendererComponent.getBackground.getGreen
+            Dim ColSelB As Integer = getTableCellRendererComponent.getBackground.getBlue
+
+            Dim ColBackR As Integer = myGrid.DataMatrix(row, col).CellBackColor / 1 And 255
+            Dim ColBackG As Integer = myGrid.DataMatrix(row, col).CellBackColor / 256 And 255
+            Dim ColBackB As Integer = myGrid.DataMatrix(row, col).CellBackColor / 65536 And 255
+            ColSelR = (ColSelR / 3 * 2 + ColBackR / 3)
+            ColSelG = (ColSelG / 3 * 2 + ColBackG / 3)
+            ColSelB = (ColSelB / 3 * 2 + ColBackB / 3)           
+            Call getTableCellRendererComponent.setBackground(RGBtoColor(RGB(ColSelR, ColSelG, ColSelB)))
+            
+            'done by Parent.setSelectionBackground()in JBGrid
+            'Else
+            '   Call getTableCellRendererComponent.setBackground(RGBtoColor(myGrid.BackColorSel))
+         End If
+         If myGrid.DataMatrix(row, col).CellForeColor <> -1 Then
+            Call getTableCellRendererComponent.setForeground(RGBtoColor(myGrid.DataMatrix(row, col).CellForeColor))
+         End If
+      End If
+   Else  
+      getTableCellRendererComponent = Base.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col)
+      Call getTableCellRendererComponent.setBackground(RGBtoColor(IIF(isSelected, myGrid.BackColorSel, IIF(row Mod 2 = 1, myGrid.BackColorCellsAlternating, myGrid.BackColorCells))))
+   End If
+End Function
+]]></Source><Param Name="(Name)" Value="JBCellRenderer"/><Param Name="(SuperClass)" Value="javax/swing/table/DefaultTableCellRenderer"/><Param Name="(NameSpace)" Value="VB"/><Param Name="(Type)" Value="Class"/><Param Name="(Access)" Value="Public"/></SourceFile>

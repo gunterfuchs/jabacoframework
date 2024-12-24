@@ -1,0 +1,153 @@
+﻿<?xml version="1.0"?>
+ <project name="JabacoFramework" basedir="." default="build">
+
+	<property name="name" value="Jabaco" />
+ 	<record name="buildant.log" loglevel="verbose" action="start" />
+	
+	<tstamp>
+		<format property="build.timestamp" pattern="yyyy-MM-dd HHmm"/>
+	</tstamp>
+
+	<tstamp>
+		<format property="build.timestamp.filename" pattern="yyyyMMddHHmm"/>
+	</tstamp>
+<!--
+	<property name="svnant.dir" value = "D:\Inet_Download\Jabaco\Apache-Ant\apache-ant-1.7.1\lib" />
+	<property name="base.dir"   value = "D:\Inet_Download\Jabaco\Framework\Sources\SVN\Checkout\" />
+	<property name="winscp.dir" value = "C:\Programme\WinSCP\WinSCP.exe" />
+	<property name="jabaco.dir" value = "C:\Programme\Jabaco" />
+-->
+	<property name="base.dir"   value = "C:\Users\gfuch\Projects\jabacoframework\" />
+	<property name="jabaco.dir" value = "C:\Program Files (x86)\Jabaco\" />
+	
+	<property name="framework.dir" value = "${base.dir}/Framework" />
+	<property name="history.dir"   value = "${base.dir}/History" />
+	<property name="upload.dir"    value = "${base.dir}/Upload" />
+	<property name="lastbuild.dir" value = "${base.dir}/LastBuild" />
+	
+	<property name="bin.dir"     value = "./bin" />
+	<property name="build.dir"   value = "./bin-tmp" />
+	<property name="src.dir"     value="./src" />
+	<property name="src.project.path" value="${src.dir}/VB/Framework.jba" />
+	<property name="doclet.dir"  value="./doclet" />
+	<property name="doclet.path" value="${doclet.dir}/bin/JBCDoclet.jar" />
+	<property name="doc.dir"     value="./doc" />
+	<property name="extlib.dir"  value="./lib" />
+	<property name="manifest"    value="${src.dir}/manifest" />
+
+	<!-- create the framework -->
+	<target name="build" depends="clean">
+
+		<!-- create the working directory -->
+		<mkdir dir="${build.dir}" />
+		<!-- create the binary output directory -->
+		<mkdir dir="${bin.dir}" />
+		<!-- create the documentation output directory -->
+		<mkdir dir="${doc.dir}" />
+			
+		<!--  compile the java sourcefiles in the VBA folder -->
+		<echo>Compile the Java sourcefiles in the VBA folder to ${build.dir}"</echo>
+		<javac srcdir="${src.dir}"
+					destdir="${build.dir}"
+					debug="true"
+					source="7"
+					target="7"
+					fork="yes"
+					executable="C:\Program Files (x86)\Java\jdk1.7.0_80\bin\javac.exe"
+					optimize="true"
+					includeantruntime="false"
+					verbose="on"
+			>
+			<classpath>
+				<pathelement path="${java.class.path}/" />
+				<pathelement path="${extlib.dir}" />
+				<pathelement path="${framework.dir}/../nativecall-0.4.1/nativecall-0.6.0.jar" />
+			</classpath>
+			<exclude name="**/VB/*.jsrc" />
+		</javac>
+		<!--
+		<javac srcdir="${src.dir}"
+					destdir="${build.dir}"
+					debug="true"
+					source="1.6"
+					target="1.6"
+					fork="yes"
+					executable="C:\Program Files (x86)\Java\jdk6\bin\javac.exe"
+					optimize="true"
+					includeantruntime="false"
+					verbose="on"
+			>
+			<classpath>
+				<pathelement path="${java.class.path}/" />
+				<pathelement path="${extlib.dir}" />
+				<pathelement path="${framework.dir}/../nativecall-0.4.1/nativecall-0.6.0.jar" />
+			</classpath>
+			<exclude name="**/VB/*.jsrc" />
+		</javac>
+		-->
+
+		<!--  compile the jabaco sourcefiles in the VB folder -->
+		<!--
+		<echo>Compile the Jabaco sourcefiles in the VB folder to ${build.dir}</echo>
+		<exec executable = "${jabaco.dir}/Jabaco.exe">
+			<arg value = "-projectpath=${framework.dir}/src/VB/Framework.jba"/>
+			<arg value = "-d=${build.dir}"/>
+		</exec>
+		<loadfile property="build_log" srcfile="${build.dir}\build.log"/>
+		<echo message="${build_log}" />
+		-->
+		
+		<!-- create the framework documentation -->
+		<!--
+		<javadoc sourcepath="${src.dir}"
+					destdir="${doc.dir}"
+					author="true"
+					version="true"
+					access="public"
+					docletpath="${doclet.path}"
+					doclet="com.jbcdoclet.JBCDoclet">
+			<classpath>
+				<pathelement path="${java.class.path}/" />
+				<pathelement path="${extlib.dir}" />
+			</classpath>
+		</javadoc>
+		-->
+
+		<!-- copy lib to working directory -->
+		<copy todir="${build.dir}">
+			<fileset dir="${extlib.dir}">
+				<include name="**/*" />
+			</fileset>
+			<fileset dir="${src.dir}">
+				<include name="**/VBA/cursors/*.gif" />
+			</fileset>
+		</copy>
+
+		<!-- create the jabaco - jar -->
+		<echo>Create ${name}.jar in ${bin.dir}</echo>
+		<jar 
+			jarfile="${bin.dir}/${name}.jar" 
+			manifest="${manifest}"
+			>
+			<fileset dir="${build.dir}" />
+		</jar>
+
+		<!--
+		<delete dir="${build.dir}" />
+		-->
+
+	</target>
+
+	<!-- cleanup  -->
+	<target name="clean">
+		<delete dir="${bin.dir}" failonerror="false" />
+		<!--
+		<delete dir="${build.dir}" failonerror="false" />
+		-->
+		<delete dir="${doc.dir}" failonerror="false" />
+		<delete> 
+			<fileset dir="." includes="**/*~" defaultexcludes="no"/>
+		</delete>
+	</target>
+	
+</project>

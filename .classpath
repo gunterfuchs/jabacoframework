@@ -8,6 +8,7 @@
 	<classpathentry kind="src" path="Framework/doclet/src"/>
 	<classpathentry kind="src" path="Framework/jabacotask"/>
 	<classpathentry kind="src" path="Framework/src"/>
+	<classpathentry kind="src" path="Framework/bin-tmp"/>
 	<classpathentry kind="lib" path="Framework/doclet/bin/JBCDoclet.jar"/>
 	<classpathentry kind="lib" path="/NativeCall/nativecall-0.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>

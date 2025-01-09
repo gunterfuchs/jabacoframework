@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0"?>
- <project name="JabacoFramework" basedir="." default="build">
+ <project name="JabacoFrameworkBitbucket" basedir="." default="build">
 
 	<property name="name" value="Jabaco" />
  	<record name="buildant.log" loglevel="verbose" action="start" />
@@ -17,7 +17,7 @@
 	<property name="winscp.dir" value = "C:\Programme\WinSCP\WinSCP.exe" />
 	<property name="jabaco.dir" value = "C:\Programme\Jabaco" />
 -->
-	<property name="base.dir"   value = "C:\Users\gfuch\Projects\jabacoframework\" />
+	<property name="base.dir"   value = "C:\Users\gfuch\Projects\jabacoframework-bitbucket\" />
 	<property name="jabaco.dir" value = "C:\Program Files (x86)\Jabaco\" />
 	
 	<property name="framework.dir" value = "${base.dir}/Framework" />
@@ -29,8 +29,10 @@
 	<property name="build.dir"   value = "./bin-tmp" />
 	<property name="src.dir"     value="./src" />
 	<property name="src.project.path" value="${src.dir}/VB/Framework.jba" />
+<!-- 	
 	<property name="doclet.dir"  value="./doclet" />
 	<property name="doclet.path" value="${doclet.dir}/bin/JBCDoclet.jar" />
+-->
 	<property name="doc.dir"     value="./doc" />
 	<property name="extlib.dir"  value="./lib" />
 	<property name="manifest"    value="${src.dir}/manifest" />

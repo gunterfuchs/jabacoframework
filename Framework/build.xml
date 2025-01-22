@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0"?>
  <project name="JabacoFrameworkBitbucket" basedir="." default="build">
-
 	<property name="name" value="Jabaco" />
  	<record name="buildant.log" loglevel="verbose" action="start" />
 	
@@ -17,10 +16,11 @@
 	<property name="winscp.dir" value = "C:\Programme\WinSCP\WinSCP.exe" />
 	<property name="jabaco.dir" value = "C:\Programme\Jabaco" />
 -->
-	<property name="base.dir"   value = "C:\Users\gfuch\Projects\jabacoframework-bitbucket\" />
+	<property name="ant.dir" value = "C:\Users\gfuch\apache-ant-1.10.15\lib" />
+	<property name="base.dir"   value = "C:\Users\gfuch\Projects\jabacoframework-bitbucket" />
 	<property name="jabaco.dir" value = "C:\Program Files (x86)\Jabaco\" />
 	
-	<property name="framework.dir" value = "${base.dir}/Framework" />
+	<property name="framework.dir" value = "${base.dir}\Framework" />
 	<property name="history.dir"   value = "${base.dir}/History" />
 	<property name="upload.dir"    value = "${base.dir}/Upload" />
 	<property name="lastbuild.dir" value = "${base.dir}/LastBuild" />
@@ -37,13 +37,21 @@
 	<property name="extlib.dir"  value="./lib" />
 	<property name="manifest"    value="${src.dir}/manifest" />
 
+	<target name="jabacotask" >
+		<!-- create the binary output directory -->
+		<mkdir dir="${bin.dir}" />
+		<javac srcdir="jabacotask" destdir="${bin.dir}" classpath="${ant.dir}ant.jar"/>
+	</target>
+	<target name="taskExtension" depends="jabacotask">
+	 	<taskdef name="JabacoAntTask" classname="JabacoAntTask" classpath="${bin.dir}"/>
+	</target>
+
+
 	<!-- create the framework -->
-	<target name="build" depends="clean">
+	<target name="build" depends="clean, taskExtension">
 
 		<!-- create the working directory -->
 		<mkdir dir="${build.dir}" />
-		<!-- create the binary output directory -->
-		<mkdir dir="${bin.dir}" />
 		<!-- create the documentation output directory -->
 		<mkdir dir="${doc.dir}" />
 			
@@ -89,15 +97,18 @@
 		-->
 
 		<!--  compile the jabaco sourcefiles in the VB folder -->
-		<!--
 		<echo>Compile the Jabaco sourcefiles in the VB folder to ${build.dir}</echo>
 		<exec executable = "${jabaco.dir}/Jabaco.exe">
 			<arg value = "-projectpath=${framework.dir}/src/VB/Framework.jba"/>
 			<arg value = "-d=${build.dir}"/>
 		</exec>
+		<!--
 		<loadfile property="build_log" srcfile="${build.dir}\build.log"/>
 		<echo message="${build_log}" />
 		-->
+
+		<!-- fix VB interface classes -->
+		<JabacoAntTask message="Fix VB interface classes." vbPath="${build.dir}/VB"/>
 		
 		<!-- create the framework documentation -->
 		<!--

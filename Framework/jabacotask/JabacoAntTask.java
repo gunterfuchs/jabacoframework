@@ -5,8 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 //import java.io.IOException;
 import java.io.File;
-//import java.nio.file.Files;
-//import java.util.Iterator;
 
 public class JabacoAntTask extends Task {
 
@@ -87,6 +85,8 @@ public class JabacoAntTask extends Task {
         	}
         }
 
+
+        // Could not get the nested elements to compile with Ant version 
         // handle nested elements
 //        for (Iterator it=messages.iterator(); it.hasNext(); ) {
 //            Message msg = (Message)it.next();

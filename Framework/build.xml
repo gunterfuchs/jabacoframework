@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0"?>
- <project name="JabacoFrameworkBitbucket" basedir="." default="build">
+	<!--
+	I did not bother building the documentation.
+	-->
+ <project name="JabacoFramework" basedir="." default="build">
 	<property name="name" value="Jabaco" />
  	<record name="buildant.log" loglevel="verbose" action="start" />
 	
@@ -10,12 +13,6 @@
 	<tstamp>
 		<format property="build.timestamp.filename" pattern="yyyyMMddHHmm"/>
 	</tstamp>
-<!--
-	<property name="svnant.dir" value = "D:\Inet_Download\Jabaco\Apache-Ant\apache-ant-1.7.1\lib" />
-	<property name="base.dir"   value = "D:\Inet_Download\Jabaco\Framework\Sources\SVN\Checkout\" />
-	<property name="winscp.dir" value = "C:\Programme\WinSCP\WinSCP.exe" />
-	<property name="jabaco.dir" value = "C:\Programme\Jabaco" />
--->
 	<property name="ant.dir" value = "C:\Users\gfuch\apache-ant-1.10.15\lib" />
 	<property name="base.dir"   value = "C:\Users\gfuch\Projects\jabacoframework-bitbucket" />
 	<property name="jabaco.dir" value = "C:\Program Files (x86)\Jabaco\" />
@@ -103,11 +100,11 @@
 			<arg value = "-d=${build.dir}"/>
 		</exec>
 		<!--
+		TODO Add feature to JabacoAntTask.java that evaluates this log file for errors.
 		<loadfile property="build_log" srcfile="${build.dir}\build.log"/>
 		<echo message="${build_log}" />
 		-->
 
-		<!-- fix VB interface classes -->
 		<JabacoAntTask message="Fix VB interface classes." vbPath="${build.dir}/VB"/>
 		
 		<!-- create the framework documentation -->
@@ -146,6 +143,8 @@
 		</jar>
 
 		<!--
+		TODO Uncomment this once this Ant build is fully tested.
+		     Let the developer delete it until then.
 		<delete dir="${build.dir}" />
 		-->
 

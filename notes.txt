@@ -129,6 +129,12 @@ byte code in the interface class files.
 This approach works.
 
 	Next Step
-Add build step in Ant build.xml that replaces the interface access flags 0x0201 in all interface classes
+Add build step in Ant build.xml that replaces the interface access flags 0x0201 in all VB interface classes
 (File names pattern is I*.class.) with flag 0x0601 before creating Jabaco.jar.
+
+________________________________________________________________________________
+01/24/2025
+Forked from GitHub repository marjanapetkovska to gunterfuchs.
+Changed the repository URL from the one on BitBucket to my GitHub one, see
+https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url
 
